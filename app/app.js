@@ -19,7 +19,7 @@ const app = express(); //npm install express --save
 //const PORT = 3000;
 
 //앱 세팅 화면뷰를 관리해줄 파일과 그 파일이 저장된 장소
-app.set("views", "./views");
+app.set("views", "./src/views");
 //그 파일 안에 생성될 html코드를 어떤 엔진으로 해석할지
 app.set("view engine", "ejs");
 
@@ -33,7 +33,7 @@ app.get("/login", (req, res) => {
 })
 */
 
-const home = require("./routes/home");
+const home = require("./src/routes/home");
 app.use("/",home); //use: 미들웨어를 등록하는 메소드
 
 /*Refactoring bin에 www.js에 보내주고 모듈 내보내기
