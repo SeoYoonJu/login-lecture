@@ -36,6 +36,9 @@ app.get("/login", (req, res) => {
 const home = require("./src/routes/home");
 app.use("/",home); //use: 미들웨어를 등록하는 메소드
 
+app.use(express.static(`${__dirname}/src/public`))
+//디렉토리 안에 src안에 public폴더를 정적경로로 추가
+
 /*Refactoring bin에 www.js에 보내주고 모듈 내보내기
 app.listen(PORT, function(){
     console.log("서버 가동");
