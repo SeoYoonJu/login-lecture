@@ -19,7 +19,14 @@ function login(){
         body: JSON.stringify(req), // stringify => 자바스크립트 객체를 JSON데이터로 변환
     })
     .then((res) => res.json())
-    .then(console.log);
-    //요거와 같음.then((res) => console.log(res));
-    //파라미터로 넘기는 값을 어떤 함수의 파라미터로 다시 받을때 생략가능
+    .then((res) => {
+        if(res.success){
+            location.href ='/';
+        }else{
+            alert(res.msg);
+        }
+    })
+    .catch((err) => {
+        console.error(new Error("로그인 중 에러 발생"));
+    })
 }
