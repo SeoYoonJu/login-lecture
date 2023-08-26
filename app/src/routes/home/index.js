@@ -11,14 +11,15 @@ router.get("/", (req, res) => {
     res.render("home/index");
 });
 */
-router.get("/", ctrl.hello);
+router.get("/", ctrl.output.hello);
 
 /*
 router.get("/login", (req, res) => {
     res.render("home/login");
 }); //요청에 해당하는 기능을 시행하는 부분->컨트롤러
 */
-router.get("/login", ctrl.login);
+router.get("/login", ctrl.output.login);
+router.post("/login",ctrl.process.login);
 
 
 module.exports = router; //내보내는 역할
