@@ -4,7 +4,7 @@ class UserStorage{
         psword: ["1234", "12345", "123456"]
     };
 
-    static getUsers(...fields){ //getter역할
+    static getUsers(...fields){ //getter역할 ...fields는 파라미터를 통해 원하는 key값만 받아오는 역할
         const users = this.#users;
         const newUsers = fields.reduce((newUsers, field) => {
             if(users.hasOwnProperty(field)){
@@ -13,6 +13,17 @@ class UserStorage{
             return newUsers;
         }, {});
         return newUsers;
+    }
+
+    static getUserInfo(id){
+        const users = this.#users;
+        const idx = users.id.indexOf(id);
+        const usersKeys = Object.keys(users);
+        const userInfo = usersKeys.reduce((newUser,info) => { //users의 key값들만 리스트로 만들기 =>[id, psword]
+            newUser[info] = users[info][idx];
+            return newUser;
+        },{});
+        return userInfo;
     }
 }
 
