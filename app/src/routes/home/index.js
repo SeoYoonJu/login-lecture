@@ -19,6 +19,7 @@ router.get("/login", (req, res) => {
 }); //요청에 해당하는 기능을 시행하는 부분->컨트롤러
 */
 router.get("/login", ctrl.output.login);
+router.get("/register", ctrl.output.register);
 router.post("/login",ctrl.process.login);
 
 

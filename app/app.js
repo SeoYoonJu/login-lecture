@@ -39,14 +39,13 @@ app.get("/login", (req, res) => {
 const home = require("./src/routes/home");
 
 //앱 세팅
- //use: 미들웨어를 등록하는 메소드
 app.use(express.static(`${__dirname}/src/public`))
 //디렉토리 안에 src안에 public폴더를 정적경로로 추가
-
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 //url을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가 포함될 경우 제대로 인식되지 않아 true값을 줘서 해결
-app.use("/",home);
+app.use("/",home);//use: 미들웨어를 등록하는 메소드
+
 /*Refactoring bin에 www.js에 보내주고 모듈 내보내기
 app.listen(PORT, function(){
     console.log("서버 가동");
