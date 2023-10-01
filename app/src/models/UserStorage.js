@@ -1,7 +1,8 @@
 class UserStorage{
     static #users = { //다른 외부 파일에서 다이렉트로 접근불가능하도록 은닉화 # (public->private)
         id: ["최승철", "윤정한", "홍지수"],
-        psword: ["1234", "12345", "123456"]
+        psword: ["1234", "12345", "123456"],
+        name: ["최승철", "윤정한", "홍지수"],
     };
 
     static getUsers(...fields){ //getter역할 ...fields는 파라미터를 통해 원하는 key값만 받아오는 역할
@@ -24,6 +25,14 @@ class UserStorage{
             return newUser;
         },{});
         return userInfo;
+    }
+
+    static save(userInfo){
+        const users =this.#users;
+        users.id.push(userInfo.id);
+        users.name.push(userInfo.name);
+        users.psword.push(userInfo.psword);
+        return {success: true};
     }
 }
 
